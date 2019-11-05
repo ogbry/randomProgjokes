@@ -1,5 +1,5 @@
 .header{
-    border: solid 1px;
+    border-bottom: solid 1px lightgrey;
     padding: 30px;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
@@ -9,12 +9,12 @@
     background-clip: padding-box;
 }
 .content{
-    border: solid 1px red;
     display: flex;
     justify-content: center;
+    padding: 10px;
 }
 .container{
-    border: solid 1px;
+    box-shadow: 1px 1px 5px 5px #999;
     width: 600px;
     margin-top: 15px;
     border-radius: 5px;
@@ -24,6 +24,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    
+    
 }
 .container span{
     font-size: 25px;
@@ -31,6 +33,9 @@
 }
 .text{
     text-align: center;
+}
+.text span{
+    word-wrap: normal !important;
 }
 .punch-line{
     text-align: center;
@@ -71,4 +76,7 @@ button{
     80% { transform: translate(-1px, -8px) rotate(1deg); }
     90% { transform: translate(1px, -9px) rotate(0deg); }
     100% { transform: translate(1px, -10px) rotate(-1deg); }
+}
+.nerd-img{
+    width: 150px;
 }

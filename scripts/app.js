@@ -12,19 +12,27 @@ function delayThis(){
     
     punchAppend.style.display = 'none'
     document.querySelector('progress').style.display = 'flex'
-    getData('https://official-joke-api.appspot.com/jokes/programming/random')
+    getData('https://sv443.net/jokeapi/category/programming')
     .then((data) => {
 
         var span = document.createElement('span')
 
-        span.innerText = data[0].setup
+        span.innerText = data.setup || data.joke
         textAppend.append(span)
 
-        
         var punchSpan = document.createElement('span')
 
-        punchSpan.innerText = data[0].punchline
-        punchAppend.append(punchSpan)
+        if(data.delivery == undefined){
+            var img = document.createElement('img')
+            img.setAttribute('src', 'https://blog.joypixels.com/content/images/2019/06/nerd_face_1024.gif')
+            img.setAttribute('class', 'nerd-img')
+            punchAppend.append(img)
+        }
+        else{
+            punchSpan.innerText = data.delivery
+            punchAppend.append(punchSpan)
+        }
+        
     })
 
 
@@ -61,6 +69,7 @@ button.addEventListener('click', function(){
 })
 
 setTimeout(delayThis, 6000)
+
 
 function getData(url){
     return fetch(url)
